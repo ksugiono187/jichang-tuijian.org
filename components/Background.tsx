@@ -17,20 +17,28 @@ export default function Background() {
         <path d="M 0,600 Q 500,400 1000,700 T 2000,500" fill="none" stroke="#fff" strokeWidth="1" className="animate-pulse-slow" style={{ animationDelay: '2s' }} />
       </svg>
       
-      {/* 4. Shooting Stars (Meteors) */}
-      <div className="meteor-container opacity-50 md:opacity-80">
-        <div className="meteor" style={{ top: '5%', left: '60%', animationDelay: '0s', animationDuration: '6s' }} />
-        <div className="meteor" style={{ top: '15%', left: '85%', animationDelay: '1s', animationDuration: '8s' }} />
-        <div className="meteor" style={{ top: '30%', left: '95%', animationDelay: '3s', animationDuration: '7s' }} />
-        <div className="meteor" style={{ top: '10%', left: '40%', animationDelay: '4s', animationDuration: '9s' }} />
-        <div className="meteor" style={{ top: '45%', left: '80%', animationDelay: '2.5s', animationDuration: '10s' }} />
-        <div className="meteor" style={{ top: '2%', left: '75%', animationDelay: '5s', animationDuration: '6s' }} />
-        <div className="meteor" style={{ top: '25%', left: '50%', animationDelay: '6s', animationDuration: '8s' }} />
-        <div className="meteor" style={{ top: '50%', left: '90%', animationDelay: '7.5s', animationDuration: '11s' }} />
-        <div className="meteor" style={{ top: '8%', left: '90%', animationDelay: '8.5s', animationDuration: '7s' }} />
-        <div className="meteor" style={{ top: '35%', left: '70%', animationDelay: '10s', animationDuration: '9s' }} />
-        <div className="meteor" style={{ top: '60%', left: '85%', animationDelay: '12s', animationDuration: '8s' }} />
-        <div className="meteor" style={{ top: '20%', left: '95%', animationDelay: '14s', animationDuration: '6s' }} />
+      {/* 4. Shooting Stars (Meteors) - 30 Meteors */}
+      <div className="meteor-container opacity-60 md:opacity-90">
+        {[...Array(30)].map((_, i) => {
+          // Generate deterministic values based on index to avoid hydration mismatch
+          const top = (i * 13) % 100; // Spread across vertical (0 - 100%)
+          const left = (i * 21) % 120; // Spread across horizontal (0 - 120% to allow coming from off-screen right)
+          const delay = (i * 0.73) % 12; // Delays between 0s and 12s
+          const duration = 4 + ((i * 1.3) % 6); // Duration between 4s and 10s
+          
+          return (
+            <div 
+              key={i} 
+              className="meteor" 
+              style={{ 
+                top: `${top}%`, 
+                left: `${left}%`, 
+                animationDelay: `${delay}s`, 
+                animationDuration: `${duration}s` 
+              }} 
+            />
+          );
+        })}
       </div>
       
       {/* 5. Vignette / Depth */}

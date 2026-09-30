@@ -95,7 +95,7 @@ export default function AirportCard({ airport, index }: { airport: Airport, inde
               </div>
               <div className="font-mono text-purple-300 font-bold px-3 py-1 bg-black/30 rounded border border-purple-500/30 flex items-center shadow-[0_0_15px_rgba(168,85,247,0.15)]">
                 {airport.coupon}
-                <Copy className="w-3 h-3 ml-2 opacity-50 cursor-pointer hover:opacity-100 transition-opacity" title="复制" />
+                <Copy className="w-3 h-3 ml-2 opacity-50 cursor-pointer hover:opacity-100 transition-opacity" />
               </div>
            </div>
         )}

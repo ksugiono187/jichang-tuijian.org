@@ -233,7 +233,7 @@ export const airports: Airport[] = [
     coupon: "88888",
     category: "平价中转",
     price: "约 ¥6/月起",
-    traffic: "以官网最新套餐为准",
+    traffic: "300GB",
     protocol: "主流协议",
     route: "港/日/美等地区",
     tag: "平价中转",

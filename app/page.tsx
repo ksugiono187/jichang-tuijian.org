@@ -31,7 +31,7 @@ export default function Home() {
         </p>
 
         <p className="mt-6 text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-          为您精心整理和对比最新高性价比与稳定专线机场。无论是专线、中转，还是追求大流量，都能在这里找到最适合您的“机场推荐哪个比较好”的答案。
+          整理29个机场服务品牌，提供价格、流量、线路、协议、优惠券与使用信息，帮助用户快速了解不同机场方案。
         </p>
 
         {/* Data Visual Tags */}
@@ -71,12 +71,12 @@ export default function Home() {
 
         {/* CTA Buttons */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-          <Link href="#ranking" className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-slate-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center">
-            开始查看品牌
+          <Link href="/brands" className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-slate-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center">
+            查看机场推荐
             <ArrowDown className="w-4 h-4 ml-2 animate-bounce" />
           </Link>
-          <Link href="#guide" className="px-8 py-4 rounded-full glass-panel text-white font-medium hover:bg-white/10 transition-colors">
-            阅读选择指南
+          <Link href="/compare" className="px-8 py-4 rounded-full glass-panel text-white font-medium hover:bg-white/10 transition-colors">
+            查看机场对比
           </Link>
         </div>
       </section>

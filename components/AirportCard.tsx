@@ -50,9 +50,14 @@ export default function AirportCard({ airport, index }: { airport: Airport, inde
         </div>
 
         {/* Recommendation Reason */}
-        <p className="text-slate-300 text-sm mb-6 leading-relaxed border-l-2 border-brand-500/50 pl-4 py-1">
-          {airport.recommendationReason}
-        </p>
+        <div className="mb-6 border-l-2 border-brand-500/50 pl-4 py-1">
+          <p className="text-slate-300 text-sm leading-relaxed mb-2">
+            <strong>推荐理由：</strong>{airport.recommendationReason}
+          </p>
+          <p className="text-slate-400 text-xs leading-relaxed">
+            <strong>核心原因：</strong>{airport.coreReason}
+          </p>
+        </div>
 
         {/* Information Grid */}
         <div className="grid grid-cols-2 gap-3 mb-6 text-sm">
@@ -103,15 +108,20 @@ export default function AirportCard({ airport, index }: { airport: Airport, inde
       </div>
 
       {/* Footer / CTA */}
-      <div className="p-4 md:p-6 border-t border-white/5 bg-black/20 mt-auto flex flex-col gap-3">
+      <div className="p-4 md:p-6 border-t border-white/5 bg-black/20 mt-auto flex flex-col sm:flex-row gap-3">
+        <Link 
+          href={`/brands/${airport.slug}`} 
+          className="flex-1 flex items-center justify-center py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl transition-colors"
+        >
+          查看详情
+        </Link>
         <Link 
           href={airport.affiliateUrl} 
           target="_blank" 
           rel="nofollow noopener noreferrer"
-          className="w-full flex items-center justify-center py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-medium rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)]"
+          className="flex-1 flex items-center justify-center py-3 bg-brand-600 hover:bg-brand-500 text-white font-medium rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)]"
         >
-          <span className="tracking-wide">访问官网 / 查看详情</span>
-          <ExternalLink className="w-4 h-4 ml-2" />
+          访问官网 <ExternalLink className="w-4 h-4 ml-1.5" />
         </Link>
       </div>
     </article>

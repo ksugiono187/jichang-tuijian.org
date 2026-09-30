@@ -436,7 +436,7 @@ export const airports: Airport[] = [
     traffic: "30GB/月",
     protocol: "自研客户端",
     route: "IEPL专线",
-    tag: "轻量专线",
+    tag: "自研轻量专线",
     shortDescription: "结合自研客户端与IEPL专线的轻量级年付优选。",
     recommendationReason: "采用了高质量的IEPL专线，并配合低门槛的年付折算价格与自研客户端，轻巧而强大。",
     coreReason: "IEPL专线与低门槛年付结合的轻量化设计。",

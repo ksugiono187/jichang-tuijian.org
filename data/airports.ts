@@ -271,6 +271,7 @@ export const airports: Airport[] = [
       { question: "Sogo云的企业级专线和普通线路有什么区别？", answer: "企业级专线通常拥有更高的SLA保证，带宽更独享，延迟更低，在特殊时期依然能保持极佳的稳定性。" }
     ],
     seoTitle: "Sogo云 - 高端IEPL企业级专线机场推荐",
+    seoDescription: "Sogo云主打IEPL企业级专线，提供150GB大流量套餐。通过自研与通用协议结合，为商务与高要求用户带来极速稳定的翻墙体验。"
   },
   {
     id: "11",
@@ -520,6 +521,7 @@ export const airports: Airport[] = [
       { question: "浪网的VLESS协议有什么优势？", answer: "VLESS协议更加轻量和安全，能够提供更好的速度表现和抗封锁能力。" }
     ],
     seoTitle: "浪网 WaveNet - VLESS高流量优化自研机场推荐",
+    seoDescription: "浪网WaveNet采用先进VLESS协议与自研客户端优化线路，每月30元起提供150GB大流量，是追求速度与易用性平衡的优质选择。"
   },
   {
     id: "21",

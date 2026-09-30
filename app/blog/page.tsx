@@ -28,13 +28,29 @@ export default function BlogIndexPage() {
         </p>
       </div>
 
-      <div className="space-y-20">
+      {/* Sticky Category Navigation */}
+      <div className="sticky top-20 z-40 bg-slate-950/80 backdrop-blur-md border-b border-white/10 mb-12 -mx-4 px-4 py-4 sm:mx-0 sm:px-0 sm:rounded-2xl sm:border sm:bg-white/5 flex overflow-x-auto hide-scrollbar gap-2 sm:gap-4 justify-start sm:justify-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+        {categoryOrder.map((category) => {
+          if (!groupedBlogs[category] || groupedBlogs[category].length === 0) return null;
+          return (
+            <a 
+              key={category} 
+              href={`#${category}`}
+              className="whitespace-nowrap px-4 py-2 rounded-xl text-sm font-medium text-slate-300 bg-white/5 hover:bg-brand-600 hover:text-white transition-all border border-white/5 hover:border-brand-500 hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+            >
+              {category} <span className="ml-1.5 opacity-60 text-xs">({groupedBlogs[category].length})</span>
+            </a>
+          );
+        })}
+      </div>
+
+      <div className="space-y-24">
         {categoryOrder.map((category, idx) => {
           const categoryBlogs = groupedBlogs[category] || [];
           if (categoryBlogs.length === 0) return null;
           
           return (
-            <section key={category} className="animate-fade-in-up" style={{ animationDelay: `${idx * 150}ms` }}>
+            <section id={category} key={category} className="animate-fade-in-up scroll-mt-32" style={{ animationDelay: `${idx * 150}ms` }}>
               <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
                 <h2 className="text-3xl font-bold text-white flex items-center">
                   <BookOpen className="w-7 h-7 mr-3 text-brand-500" />

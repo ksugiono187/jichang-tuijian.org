@@ -174,17 +174,21 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
             <p>
               相比于早期易被主动探测系统（Active Probing）识别的老旧代理方式，现代的 {airport.protocol} 技术在流量伪装度和抗审查能力上有了质的飞跃。您的所有网络请求都会被伪装成普通的 HTTPS 网页流量，使得运营商和防火墙无法分析您的真实访问行为。您可以放心地在公司、学校内网以及公共 Wi-Fi 环境下使用，不用担心流量特征被拦截。
             </p>
-            <p>
-              <strong>多平台设备兼容性指南：</strong><br/>
-              无论您使用什么操作系统，{airport.name} 都能提供完善的支持。
+            <div>
+              <p>
+                <strong>多平台设备兼容性指南：</strong><br/>
+                无论您使用什么操作系统，{airport.name} 都能提供完善的支持。
+              </p>
               <ul>
                 <li><strong>Windows 用户</strong>：强烈推荐使用 Clash Verge Rev 或 v2rayN，导入订阅后即可实现自动分流。</li>
                 <li><strong>macOS 用户</strong>：推荐使用 ClashX Pro、Surge 或 Shadowrocket (Apple Silicon)。</li>
                 <li><strong>iOS (iPhone/iPad)</strong>：推荐在美区 App Store 下载 Shadowrocket (小火箭) 或 Quantumult X。</li>
                 <li><strong>Android 用户</strong>：可以使用 Surfboard、Clash for Android 或 v2rayNG。</li>
               </ul>
-              大部分优质品牌（如 {airport.name}）都在其官方后台提供了详尽的“一键导入”按钮或“傻瓜式自研客户端”，即使是没有任何技术背景的新手，也能在 3 分钟内完成配置并开始畅游互联网。
-            </p>
+              <p>
+                大部分优质品牌（如 {airport.name}）都在其官方后台提供了详尽的“一键导入”按钮或“傻瓜式自研客户端”，即使是没有任何技术背景的新手，也能在 3 分钟内完成配置并开始畅游互联网。
+              </p>
+            </div>
           </div>
         </section>
 

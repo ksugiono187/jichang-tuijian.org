@@ -18,12 +18,19 @@ export default function Background() {
       </svg>
       
       {/* 4. Shooting Stars (Meteors) */}
-      <div className="meteor-container opacity-40 md:opacity-70">
-        <div className="meteor" style={{ top: '10%', left: '70%', animationDelay: '0s', animationDuration: '8s' }} />
-        <div className="meteor" style={{ top: '30%', left: '85%', animationDelay: '2s', animationDuration: '12s' }} />
-        <div className="meteor" style={{ top: '5%', left: '40%', animationDelay: '4s', animationDuration: '10s' }} />
-        <div className="meteor" style={{ top: '50%', left: '90%', animationDelay: '7s', animationDuration: '15s' }} />
-        <div className="meteor" style={{ top: '15%', left: '95%', animationDelay: '9s', animationDuration: '11s' }} />
+      <div className="meteor-container opacity-50 md:opacity-80">
+        <div className="meteor" style={{ top: '5%', left: '60%', animationDelay: '0s', animationDuration: '6s' }} />
+        <div className="meteor" style={{ top: '15%', left: '85%', animationDelay: '1s', animationDuration: '8s' }} />
+        <div className="meteor" style={{ top: '30%', left: '95%', animationDelay: '3s', animationDuration: '7s' }} />
+        <div className="meteor" style={{ top: '10%', left: '40%', animationDelay: '4s', animationDuration: '9s' }} />
+        <div className="meteor" style={{ top: '45%', left: '80%', animationDelay: '2.5s', animationDuration: '10s' }} />
+        <div className="meteor" style={{ top: '2%', left: '75%', animationDelay: '5s', animationDuration: '6s' }} />
+        <div className="meteor" style={{ top: '25%', left: '50%', animationDelay: '6s', animationDuration: '8s' }} />
+        <div className="meteor" style={{ top: '50%', left: '90%', animationDelay: '7.5s', animationDuration: '11s' }} />
+        <div className="meteor" style={{ top: '8%', left: '90%', animationDelay: '8.5s', animationDuration: '7s' }} />
+        <div className="meteor" style={{ top: '35%', left: '70%', animationDelay: '10s', animationDuration: '9s' }} />
+        <div className="meteor" style={{ top: '60%', left: '85%', animationDelay: '12s', animationDuration: '8s' }} />
+        <div className="meteor" style={{ top: '20%', left: '95%', animationDelay: '14s', animationDuration: '6s' }} />
       </div>
       
       {/* 5. Vignette / Depth */}

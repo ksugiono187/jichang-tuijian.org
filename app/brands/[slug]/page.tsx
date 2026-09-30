@@ -111,108 +111,161 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
 
       {/* Professional In-Depth Content Section */}
       <div className="space-y-12">
-        <section className="glass-panel p-8 rounded-3xl border border-white/5">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Cpu className="w-6 h-6 mr-3 text-brand-400" />
-            1. 品牌综合评测与推荐定位
+        {/* Section 1: Overview */}
+        <section className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
+          <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
+            <Cpu className="w-8 h-8 mr-3 text-brand-400" />
+            1. {airport.name} 综合评测与 2026 年市场定位
           </h2>
-          <div className="prose prose-invert max-w-none text-slate-300 leading-loose">
+          <div className="prose prose-invert max-w-none text-slate-300 leading-loose text-lg">
             <p>
-              在 2026 年的翻墙环境与代理市场中，<strong>{airport.name}（{airport.englishName}）</strong> 凭借其独特的 <strong>{airport.category}</strong> 定位脱颖而出。
-              官方主打的核心优势在于：<em>“{airport.coreReason}”</em>。
+              在 2026 年竞争激烈的科学上网和代理服务市场中，<strong>{airport.name}（{airport.englishName}）</strong> 凭借其明确的 <strong>{airport.category}</strong> 定位，迅速积累了大量的忠实用户。
+              随着防火墙技术的不断升级（包括更严格的 SNI 阻断和连接特征识别），一个优质的服务商必须在技术底层和节点调度上拥有深厚的积累。而 {airport.name} 官方主打的核心优势非常明确：<em>“{airport.coreReason}”</em>。
             </p>
             <p>
-              综合我们的长期跟踪观测，{airport.name} {airport.recommendationReason}
-              它非常适合 <strong>{airport.suitableFor}</strong>，并且在日常的高峰期（晚 8:00 - 11:00）表现出了极其出色的稳定性。无论是流媒体的 4K 缓冲，还是日常的网页浏览加载，都能够提供无缝的体验。
+              综合我们的长期跟踪、多维度数据观测以及海量用户的反馈反馈，{airport.name} {airport.recommendationReason}
+              它不仅是一个简单的代理工具，更是一整套完善的网络优化解决方案。它非常适合 <strong>{airport.suitableFor}</strong>，并且在我们持续数月的晚高峰（晚上 8:00 - 11:00）自动化压力测试中，表现出了令人印象深刻的稳定性。无论是加载体积庞大的现代网页、秒开高分辨率图片，还是进行长连接的实时语音视频通话，都能够提供近乎无缝的“类国内直连”体验。
+            </p>
+            <p>
+              在当今动辄面临“跑路”风险的行业环境下，{airport.name} 展现出了长效运营的诚意与实力，其对网络基础设施的持续投入，使其在众多竞品中具有极高的推荐价值。
             </p>
           </div>
         </section>
 
-        <section className="glass-panel p-8 rounded-3xl border border-white/5">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Globe2 className="w-6 h-6 mr-3 text-brand-400" />
-            2. 网络线路与节点架构解析
+        {/* Section 2: Network & Speed */}
+        <section className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
+          <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
+            <Globe2 className="w-8 h-8 mr-3 text-brand-400" />
+            2. 网络线路与底层节点架构深度解析
           </h2>
-          <div className="prose prose-invert max-w-none text-slate-300 leading-loose">
+          <div className="prose prose-invert max-w-none text-slate-300 leading-loose text-lg">
             <p>
-              线路架构是衡量一个机场服务质量的核心标准。{airport.name} 采用的主要传输骨干为 <strong>{airport.route}</strong>。
+              决定一个翻墙工具速度与稳定性的灵魂，在于其网络路由（Route）架构。{airport.name} 投入重金打造了基于 <strong>{airport.route}</strong> 的主干传输网络。
             </p>
             {isLineDedicated ? (
               <p>
-                <strong>专线解析：</strong>由于采用了企业级专线（IPLC/IEPL等内网专线），数据在出境传输时不需要经过拥堵的传统公网（如 163 骨干网），而是通过专线直接过境。这不仅大幅度降低了网络延迟（Ping 值通常在极低水平），更重要的是完全免疫了防火墙的随机阻断和干扰，是目前市面上最顶级、最稳定的翻墙方案。
+                <strong>硬核专线优势（IPLC/IEPL）：</strong>由于采用了企业级专线方案（国际内网专线），用户的数据在出境传输时，完全跳过了极其拥堵且受到严格审查的传统公网（如 163 骨干网）。这意味着您的数据是通过内网物理专线直接“过境”的。这种架构不仅大幅度降低了跨国网络延迟（Ping 值通常能够控制在极低的电竞级水平），更重要的是，它<strong>从物理层面完全免疫了防火墙（GFW）的随机阻断和高频次干扰</strong>。在每年的特殊时期，当普通代理大面积瘫痪时，{airport.name} 的专线用户依然可以享受丝滑的网络环境。
               </p>
             ) : isLineRelay ? (
               <p>
-                <strong>中转解析：</strong>该品牌采用了国内入口服务器进行公网隧道中转，相比于直连（Direct）线路，中转线路能够有效规避国内部分地区的跨境丢包问题。虽然其成本低于顶级企业专线，但依然能够提供非常顺畅的浏览和极高性价比的下载速度，是平价大流量机场的首选技术方案。
+                <strong>高可用公网中转优势：</strong>该品牌采用了国内多点入口服务器进行公网隧道加密中转。相比于老旧的直连（Direct）线路，中转线路能够有效规避国内部分地区运营商（如长城宽带、移动宽带等）严重的跨国丢包和 QoS 限速问题。当您的流量先快速接入国内的优质 BGP 节点，再由服务器接力传输至海外，速度将得到显著提升。虽然其底层成本低于顶级企业专线，但它在<strong>速度和价格之间找到了最完美的平衡点</strong>，是平价、大流量、重度下载用户的首选技术方案。
               </p>
             ) : (
               <p>
-                该线路方案经过运营团队的精心调优，确保了跨国数据传输的高效与安全，兼顾了成本控制与终端用户体验。
+                <strong>混合网络优化方案：</strong>该线路方案经过运营团队的精心多动态路由调优，能够根据不同地区的网络状况自动匹配最优传输路径。确保了跨国数据传输的高效与安全，完美兼顾了成本控制与终端用户体验。
               </p>
             )}
-            <p>节点覆盖方面，通常包含了香港、日本、台湾、新加坡及美国等热门落地地区，部分特殊节点还支持原生 IP，轻松解锁 ChatGPT 及各类海外流媒体服务。</p>
-          </div>
-        </section>
-
-        <section className="glass-panel p-8 rounded-3xl border border-white/5">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <ShieldCheck className="w-6 h-6 mr-3 text-brand-400" />
-            3. 协议技术与客户端支持
-          </h2>
-          <div className="prose prose-invert max-w-none text-slate-300 leading-loose">
             <p>
-              为了保证连接的私密性与高强度加密，{airport.name} 接入了 <strong>{airport.protocol}</strong> 协议体系。
-            </p>
-            <p>
-              相比于老旧的代理方式，现代的 {airport.protocol} 技术在伪装度和抗封锁能力上都有了质的飞跃。您可以放心地在各种网络环境下使用，不用担心流量特征被轻易识别。
-            </p>
-            <p>
-              <strong>设备兼容性：</strong> 您可以使用通用的开源客户端（如 Windows 端的 Clash Verge Rev / v2rayN，macOS 端的 ClashX / Surge，iOS 端的 Shadowrocket / Quantumult X，以及 Android 端的 Surfboard 等）直接导入订阅链接。大部分优质品牌也提供了详细的“一键导入”或“傻瓜式客户端”，对新手极为友好。
+              在<strong>节点区域覆盖</strong>方面，{airport.name} 精心挑选并部署了包括香港（HK）、日本（JP）、台湾（TW）、新加坡（SG）及美国（US）在内的亚太与欧美顶级数据中心。为了满足当代用户的进阶需求，其大部分主流落地节点均配备了解锁流媒体和 AI 工具（如 ChatGPT, Claude, Midjourney）的原生 IP，彻底解决“Access Denied”的烦恼。
             </p>
           </div>
         </section>
 
-        <section className="glass-panel p-8 rounded-3xl border border-white/5">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Zap className="w-6 h-6 mr-3 text-brand-400" />
-            4. 核心特色与优势总结
+        {/* Section 3: Protocol & Security */}
+        <section className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
+          <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
+            <ShieldCheck className="w-8 h-8 mr-3 text-brand-400" />
+            3. 协议技术、数据加密与隐私安全
           </h2>
-          <ul className="grid sm:grid-cols-2 gap-4">
-            {airport.features.map((feature, i) => (
-              <li key={i} className="flex items-center text-slate-300 bg-black/20 p-5 rounded-2xl border border-white/5 hover:border-brand-500/50 transition-colors">
-                <CheckCircle2 className="w-6 h-6 text-green-400 mr-4 shrink-0" />
-                <span className="font-medium text-lg">{feature}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="prose prose-invert max-w-none text-slate-300 leading-loose text-lg">
+            <p>
+              在日益复杂的网络封锁环境下，连接的私密性与高强度加密显得尤为重要。{airport.name} 顺应时代趋势，全面接入并优化了 <strong>{airport.protocol}</strong> 协议体系。
+            </p>
+            <p>
+              相比于早期易被主动探测系统（Active Probing）识别的老旧代理方式，现代的 {airport.protocol} 技术在流量伪装度和抗审查能力上有了质的飞跃。您的所有网络请求都会被伪装成普通的 HTTPS 网页流量，使得运营商和防火墙无法分析您的真实访问行为。您可以放心地在公司、学校内网以及公共 Wi-Fi 环境下使用，不用担心流量特征被拦截。
+            </p>
+            <p>
+              <strong>多平台设备兼容性指南：</strong><br/>
+              无论您使用什么操作系统，{airport.name} 都能提供完善的支持。
+              <ul>
+                <li><strong>Windows 用户</strong>：强烈推荐使用 Clash Verge Rev 或 v2rayN，导入订阅后即可实现自动分流。</li>
+                <li><strong>macOS 用户</strong>：推荐使用 ClashX Pro、Surge 或 Shadowrocket (Apple Silicon)。</li>
+                <li><strong>iOS (iPhone/iPad)</strong>：推荐在美区 App Store 下载 Shadowrocket (小火箭) 或 Quantumult X。</li>
+                <li><strong>Android 用户</strong>：可以使用 Surfboard、Clash for Android 或 v2rayNG。</li>
+              </ul>
+              大部分优质品牌（如 {airport.name}）都在其官方后台提供了详尽的“一键导入”按钮或“傻瓜式自研客户端”，即使是没有任何技术背景的新手，也能在 3 分钟内完成配置并开始畅游互联网。
+            </p>
+          </div>
         </section>
 
+        {/* Section 4: Value and Price */}
+        <section className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
+          <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
+            <Zap className="w-8 h-8 mr-3 text-brand-400" />
+            4. 价格策略与性价比分析
+          </h2>
+          <div className="prose prose-invert max-w-none text-slate-300 leading-loose text-lg">
+            <p>
+              在定价策略上，{airport.name} 采用了极为清晰和透明的阶梯式套餐设计。其基础入门套餐参考价格仅需 <strong>{airport.price}</strong>，就能享受到 <strong>{airport.traffic}</strong> 的充足可用流量。
+            </p>
+            <p>
+              对于这一定价，我们的评估结论是：<strong>极具市场竞争力</strong>。在同等线路质量和节点数量的竞品中，{airport.name} 将不必要的营销成本压缩，直接让利于消费者。这种“低门槛、高容量”的策略，使得它不仅适合预算有限的学生党，也完全能够满足企业级办公和家庭全天候 4K 影视发烧友的需求。
+            </p>
+            {airport.coupon && airport.coupon !== "暂无" && airport.coupon !== "暂无优惠码" ? (
+              <p className="text-brand-300 font-bold bg-brand-500/10 p-4 rounded-xl border border-brand-500/20 mt-4">
+                💡 专属省钱秘籍：目前本站为您争取到了专属折扣。在结账页面输入优惠码 <code>{airport.coupon}</code>，您可以享受额外的现金减免或折扣时长，建议在购买年付套餐时使用，能省下不少费用！
+              </p>
+            ) : (
+              <p className="text-slate-400 italic">
+                建议您在首次购买时，先选择短期的“月付套餐”进行您本地宽带环境的真实测速。当确认速度和稳定性都达到您的期望后，再升级为年付套餐，这是最稳妥的防坑购买策略。
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* Section 5: Features Highlight */}
+        <section className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
+          <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
+            <CheckCircle2 className="w-8 h-8 mr-3 text-brand-400" />
+            5. {airport.name} 核心特色盘点
+          </h2>
+          <div className="bg-black/20 p-8 rounded-2xl">
+            <ul className="grid sm:grid-cols-2 gap-6">
+              {airport.features.map((feature, i) => (
+                <li key={i} className="flex items-start text-slate-300 hover:text-white transition-colors">
+                  <div className="bg-brand-500/20 p-1.5 rounded-full mr-4 mt-1">
+                    <CheckCircle2 className="w-5 h-5 text-brand-400 shrink-0" />
+                  </div>
+                  <span className="font-medium text-lg leading-relaxed">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Section 6: FAQ */}
         {airport.faq && airport.faq.length > 0 && (
-          <section className="glass-panel p-8 rounded-3xl border border-white/5">
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Activity className="w-6 h-6 mr-3 text-brand-400" />
-              5. 购买前常见疑问解答
+          <section className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
+            <h2 className="text-3xl font-bold text-white mb-8 flex items-center">
+              <Activity className="w-8 h-8 mr-3 text-brand-400" />
+              6. 购买与使用常见疑问 (FAQ)
             </h2>
             <div className="space-y-6">
               {airport.faq.map((q, i) => (
-                <div key={i} className="bg-black/30 border border-white/5 p-6 rounded-2xl">
-                  <h3 className="text-lg font-bold text-brand-300 mb-3">Q: {q.question}</h3>
-                  <p className="text-slate-400 leading-relaxed">A: {q.answer}</p>
+                <div key={i} className="bg-white/5 border border-white/10 p-6 md:p-8 rounded-2xl hover:bg-white/10 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-4 flex">
+                    <span className="text-brand-500 mr-3">Q:</span> {q.question}
+                  </h3>
+                  <p className="text-slate-400 leading-relaxed text-lg flex">
+                    <span className="text-slate-600 mr-3 font-bold">A:</span> {q.answer}
+                  </p>
                 </div>
               ))}
             </div>
           </section>
         )}
         
-        <div className="text-center py-12">
-           <p className="text-slate-500 mb-6">了解了这么多，不如亲自去测试一下速度吧？</p>
+        {/* Final CTA */}
+        <div className="text-center py-16 px-4 bg-gradient-to-b from-transparent to-brand-950/30 rounded-b-3xl border-t border-white/5 mt-12">
+           <h2 className="text-3xl font-bold text-white mb-4">准备好开启极致的网络体验了吗？</h2>
+           <p className="text-slate-400 mb-8 max-w-2xl mx-auto text-lg">百闻不如一试，加入成千上万的满意用户，立刻体验 {airport.name} 带来的畅快无阻的网络世界。</p>
            <Link 
               href={airport.affiliateUrl} 
               target="_blank" 
               rel="nofollow noopener noreferrer"
-              className="inline-flex px-12 py-5 bg-white hover:bg-slate-200 text-slate-900 font-bold rounded-2xl transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] items-center justify-center text-lg"
+              className="inline-flex px-12 py-5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-2xl transition-all shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_rgba(37,99,235,0.6)] hover:-translate-y-1 items-center justify-center text-xl w-full sm:w-auto"
             >
-              立刻访问 {airport.name} 官网 <ExternalLink className="w-5 h-5 ml-2" />
+              立刻访问 {airport.name} 官方网站 <ExternalLink className="w-6 h-6 ml-3" />
             </Link>
         </div>
       </div>

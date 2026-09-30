@@ -15,7 +15,7 @@ export default function Header() {
     { href: "/coupons", label: "优惠券" },
     { href: "/blog", label: "博客" },
     { href: "/blog/airport-selection-guide", label: "指南" },
-    { href: "/faq", label: "FAQ" },
+    { href: "/blog/airport-faq", label: "FAQ" },
   ];
 
   return (

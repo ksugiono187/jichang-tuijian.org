@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/coupons",
     "/blog",
     "/blog/airport-selection-guide",
+    "/blog/airport-faq",
     "/guides",
     "/faq",
     "/about",

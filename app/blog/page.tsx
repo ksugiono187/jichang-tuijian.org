@@ -1,45 +1,71 @@
+import { blogs } from "@/data/blogs";
 import { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Search, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "机场推荐博客与科普文章",
-  description: "机场评测、线路解析、IPLC与IEPL区别、Clash教程及机场选择指南。深度科普帮您防坑。",
+  title: "机场推荐知识库与深度博客",
+  description: "围绕机场推荐建立的完整内容体系。包含机场评测、线路解析、使用教程及防坑指南等200+专业文章。",
 };
 
-const articles = [
-  { title: "2026年机场怎么选？专线与中转全面解析", desc: "详细讲解机场推荐策略，从价格、流量到网络协议的全面评估指南。", date: "2026-09-01", category: "选购指南" },
-  { title: "IPLC和IEPL专线有什么区别？", desc: "深度解析国际内网专线与企业专线的工作原理，以及为何它们能实现低延迟和免受干扰。", date: "2026-08-15", category: "技术科普" },
-  { title: "机场价格怎么看？流量计算方式揭秘", desc: "为什么有些机场100GB只要5元，有些却要50元？带你了解倍率与实际流量的关系。", date: "2026-08-10", category: "防坑指南" },
-  { title: "Clash/V2rayN 各平台使用教程汇总", desc: "Windows, macOS, iOS, Android 各大主流平台的客户端配置与订阅导入教程。", date: "2026-07-22", category: "使用教程" },
-];
+// Define the exact category order requested by the user
+const categoryOrder = ["机场推荐", "机场对比", "机场评测", "使用教程", "问题解决", "常见问题"];
 
-export default function BlogPage() {
+export default function BlogIndexPage() {
+  // Group blogs by category
+  const groupedBlogs = blogs.reduce((acc, blog) => {
+    if (!acc[blog.category]) acc[blog.category] = [];
+    acc[blog.category].push(blog);
+    return acc;
+  }, {} as Record<string, typeof blogs>);
+
   return (
     <div className="container mx-auto max-w-6xl px-4 py-24">
-      <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">博客与教程</h1>
-      <p className="text-slate-400 mb-12 max-w-2xl text-lg">阅读深度评测与科普文章，快速提升鉴别能力，让您在挑选机场时不迷路。</p>
-      
-      <div className="grid md:grid-cols-2 gap-8">
-        {articles.map((article, i) => (
-          <article key={i} className="glass-card rounded-2xl p-8 hover:-translate-y-1 transition-transform">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-xs font-bold text-brand-400 bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
-                {article.category}
-              </span>
-              <span className="text-xs text-slate-500">{article.date}</span>
-            </div>
-            <h2 className="text-2xl font-bold text-white mb-3 hover:text-brand-400 transition-colors cursor-pointer">
-              {article.title}
-            </h2>
-            <p className="text-slate-400 mb-6 leading-relaxed">
-              {article.desc}
-            </p>
-            <div className="flex items-center text-sm font-medium text-brand-400 cursor-pointer group">
-              阅读全文 <BookOpen className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </article>
-        ))}
+      <div className="text-center mb-16 animate-fade-in-up">
+        <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">知识库与教程博客</h1>
+        <p className="text-slate-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+          这里不仅是简单的文章堆砌，而是为您精心整理的 <strong>机场推荐完整内容体系</strong>。从入门科普到高阶节点排错，解决您的所有疑惑。
+        </p>
+      </div>
+
+      <div className="space-y-20">
+        {categoryOrder.map((category, idx) => {
+          const categoryBlogs = groupedBlogs[category] || [];
+          if (categoryBlogs.length === 0) return null;
+          
+          return (
+            <section key={category} className="animate-fade-in-up" style={{ animationDelay: `${idx * 150}ms` }}>
+              <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+                <h2 className="text-3xl font-bold text-white flex items-center">
+                  <BookOpen className="w-7 h-7 mr-3 text-brand-500" />
+                  {category}
+                  <span className="ml-4 text-sm font-medium bg-white/10 text-slate-400 px-3 py-1 rounded-full">
+                    {categoryBlogs.length} 篇
+                  </span>
+                </h2>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {categoryBlogs.map((blog) => (
+                  <Link href={`/blog/${blog.slug}`} key={blog.id} className="group block h-full">
+                    <article className="glass-card h-full rounded-2xl p-6 border border-white/5 hover:border-brand-500/50 hover:bg-brand-900/10 transition-all duration-300">
+                      <div className="text-xs text-brand-400 mb-3 font-mono">{blog.date}</div>
+                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-brand-300 transition-colors line-clamp-2">
+                        {blog.title}
+                      </h3>
+                      <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 mb-4">
+                        {blog.description}
+                      </p>
+                      <div className="flex items-center text-sm font-bold text-brand-500 group-hover:text-brand-400 mt-auto">
+                        阅读全文 <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-2 transition-transform" />
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </div>
   );

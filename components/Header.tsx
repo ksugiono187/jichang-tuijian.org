@@ -14,7 +14,7 @@ export default function Header() {
     { href: "/compare", label: "机场对比" },
     { href: "/coupons", label: "优惠券" },
     { href: "/blog", label: "博客" },
-    { href: "/guides", label: "指南" },
+    { href: "/blog/airport-selection-guide", label: "指南" },
     { href: "/faq", label: "FAQ" },
   ];
 

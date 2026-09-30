@@ -17,14 +17,14 @@ export default function Background() {
         <path d="M 0,600 Q 500,400 1000,700 T 2000,500" fill="none" stroke="#fff" strokeWidth="1" className="animate-pulse-slow" style={{ animationDelay: '2s' }} />
       </svg>
       
-      {/* 4. Shooting Stars (Meteors) - 30 Meteors */}
+      {/* 4. Shooting Stars (Meteors) - 80 Meteors */}
       <div className="meteor-container opacity-60 md:opacity-90">
-        {[...Array(30)].map((_, i) => {
+        {[...Array(80)].map((_, i) => {
           // Generate deterministic values based on index to avoid hydration mismatch
-          const top = (i * 13) % 100; // Spread across vertical (0 - 100%)
-          const left = (i * 21) % 120; // Spread across horizontal (0 - 120% to allow coming from off-screen right)
-          const delay = (i * 0.73) % 12; // Delays between 0s and 12s
-          const duration = 4 + ((i * 1.3) % 6); // Duration between 4s and 10s
+          const top = (i * 17) % 100; // Spread across vertical (0 - 100%)
+          const left = (i * 31) % 150; // Spread across horizontal (0 - 150% to allow coming from far off-screen right)
+          const delay = (i * 0.61) % 15; // Delays between 0s and 15s
+          const duration = 3 + ((i * 1.7) % 9); // Duration between 3s and 12s
           
           return (
             <div 

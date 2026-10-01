@@ -83,7 +83,7 @@ export default function CompareTable({ airports }: { airports: Airport[] }) {
                   <td className="p-4 font-medium text-yellow-400 whitespace-nowrap">{a.traffic}</td>
                   <td className="p-4 text-xs max-w-[150px] leading-relaxed" title={a.route}>{a.route}</td>
                   <td className="p-4 text-xs whitespace-nowrap" title={a.protocol}>{a.protocol}</td>
-                  <td className="p-4 text-xs max-w-[120px] text-slate-400">{a.reason}</td>
+                  <td className="p-4 text-xs max-w-[120px] text-slate-400">{a.suitableFor || a.coreReason}</td>
                   <td className="p-4">
                     {a.coupon ? (
                       <button

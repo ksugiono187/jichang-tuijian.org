@@ -23,6 +23,14 @@ export const metadata: Metadata = {
     description: "全面对比分析 29 款优质机场，提供测速、流量、价格与优惠券信息。",
     url: "https://jichang-tuijian.org",
     siteName: "机场推荐指南",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "2026机场推荐指南",
+      },
+    ],
     locale: "zh_CN",
     type: "website",
   },
@@ -30,6 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "2026机场推荐指南",
     description: "全面对比分析优质机场，提供测速、流量、价格与优惠券信息。",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: "/favicon.ico",

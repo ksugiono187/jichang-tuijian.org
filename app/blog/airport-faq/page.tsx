@@ -52,7 +52,7 @@ export default function AirportFaqPage() {
           "name": "机场推荐应该看哪些指标？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "在参考任何机场推荐时，您应该重点考量线路类型（专线还是中转）、晚高峰速度、长期稳定性、月流量多少、价格高低、节点地区覆盖，以及是否支持您所使用的设备协议。"
+            "text": "在参考任何机场推荐时，您应该重点考量线路类型（专线还是中转）、晚高峰速度、长期稳定性、月流量多少、价格高低、节点地区覆盖，以及是否支持您所使用的设备协议。建议您直接前往 <Link href="/compare" className="text-brand-400 hover:underline">机场横向对比页面</Link> 查看详细的参数对比。"
           }
         },
         {
@@ -60,7 +60,7 @@ export default function AirportFaqPage() {
           "name": "机场怎么选？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "机场怎么选的流程其实很简单：首先明确您的核心用途（视频、游戏还是办公），然后估算每月的流量需求，确认商家支持您的设备，对比线路类型与套餐价格，最后强烈建议先买月付套餐进行实际体验测试。"
+            "text": "机场怎么选的流程其实很简单：首先明确您的核心用途（视频、游戏还是办公），然后估算每月的流量需求，确认商家支持您的设备，对比线路类型与套餐价格，最后强烈建议先买月付套餐进行实际体验测试。如果您还不了解具体的选择流程，请查看我们的 <Link href="/blog/airport-selection-guide" className="text-brand-400 hover:underline">机场选择指南</Link>。"
           }
         },
         {
@@ -172,7 +172,7 @@ export default function AirportFaqPage() {
           "name": "机场套餐应该选择月付还是年付？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "月付试错成本低，适合刚接触的新手；年付通常有较大折扣，适合长期稳定的服务。建议新用户先购买月付，经过晚高峰实际测试满意后，再考虑升级为划算的年付套餐。"
+            "text": "月付试错成本低，适合刚接触的新手；年付通常有较大折扣，适合长期稳定的服务。建议新用户先购买月付，经过晚高峰实际测试满意后，再考虑升级为划算的年付套餐，购买前别忘了查看我们的 <Link href="/coupons" className="text-brand-400 hover:underline">机场优惠券大全</Link>。"
           }
         },
         {
@@ -180,7 +180,7 @@ export default function AirportFaqPage() {
           "name": "机场选择时需要注意哪些问题？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "最常见的注意事项包括：不要盲目贪图极低的年费标价、不要仅看宣传的峰值速度而不看晚高峰稳定性、注意套餐是否有隐性流量限制，同时要关注设备支持度、售后服务响应以及退款规则。"
+            "text": "最常见的注意事项包括：不要盲目贪图极低的年费标价、不要仅看宣传的峰值速度而不看晚高峰稳定性、注意套餐是否有隐性流量限制，同时要关注设备支持度、售后服务响应以及退款规则。在决定前，您可以浏览我们为您整理的 <Link href="/brands" className="text-brand-400 hover:underline">29 款优质机场推荐名单</Link>。"
           }
         },
         {

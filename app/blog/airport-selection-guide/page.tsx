@@ -119,7 +119,7 @@ export default function AirportSelectionGuide() {
               <ul>
                 <li><strong>下载速度 / 上传速度：</strong> 影响您下载大文件和进行云盘同步的效率。</li>
                 <li><strong>视频播放体验：</strong> 能否在 YouTube 或 Netflix 上秒开 4K 甚至 8K 视频，并且拖拽进度条不卡顿。</li>
-                <li><strong>日常网页访问：</strong> 也就是网页的“首字节响应时间”。有时候测速很快，但打开网页却要转圈半天，这通常是因为节点延迟高或 DNS 劫持导致。</li>
+                <li><strong>日常网页访问：</strong> 也就是网页的“首字节响应时间”。有时候测速很快，但打开网页却要转圈半天，这通常是因为节点延迟高或 DNS 劫持导致。如果您在使用中遇到问题，可以查看我们的 <Link href="/blog/airport-faq" className="text-brand-400 font-bold hover:underline">机场常见问题解答 (FAQ)</Link>。</li>
               </ul>
 
               <h3 className="text-2xl mt-8">3. 稳定性</h3>

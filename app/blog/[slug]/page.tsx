@@ -39,11 +39,27 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-brand-400 hover:underline">$1</a>')
     .replace(/- (.*)/g, '<li class="ml-4 list-disc">$1</li>');
 
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://jichang-tuijian.org/" },
+      { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://jichang-tuijian.org/blog/" },
+      { "@type": "ListItem", "position": 3, "name": blog.title }
+    ]
+  };
+
   return (
     <article className="container mx-auto max-w-3xl px-4 py-24 animate-fade-in-up">
-      <Link href="/blog" className="inline-flex items-center text-slate-400 hover:text-brand-400 mb-8 transition-colors">
-        <ArrowLeft className="w-4 h-4 mr-2" /> 返回博客目录
-      </Link>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <nav className="flex items-center text-sm text-slate-400 mb-8 overflow-x-auto hide-scrollbar">
+        <Link href="/" className="hover:text-brand-400 whitespace-nowrap">首页</Link>
+        <span className="mx-2 shrink-0">→</span>
+        <Link href="/blog" className="hover:text-brand-400 whitespace-nowrap">博客知识库</Link>
+        <span className="mx-2 shrink-0">→</span>
+        <span className="text-slate-200 whitespace-nowrap truncate max-w-[200px] sm:max-w-xs">{blog.title}</span>
+      </nav>
       
       <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
         <header className="mb-10 pb-10 border-b border-white/10">

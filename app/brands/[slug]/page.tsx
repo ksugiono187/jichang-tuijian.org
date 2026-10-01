@@ -32,14 +32,30 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
   }
 
   // Generate dynamic analysis based on attributes
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://jichang-tuijian.org/" },
+      { "@type": "ListItem", "position": 2, "name": "机场推荐", "item": "https://jichang-tuijian.org/brands/" },
+      { "@type": "ListItem", "position": 3, "name": airport.name }
+    ]
+  };
+
   const isLineDedicated = airport.route.includes('IEPL') || airport.route.includes('IPLC') || airport.route.includes('专线');
   const isLineRelay = airport.route.includes('中转');
 
   return (
     <article className="container mx-auto max-w-4xl px-4 py-24 animate-fade-in-up">
-      <Link href="/brands" className="inline-flex items-center text-slate-400 hover:text-brand-400 mb-8 transition-colors">
-        <ArrowLeft className="w-4 h-4 mr-2" /> 返回品牌库
-      </Link>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <nav className="flex items-center text-sm text-slate-400 mb-8 overflow-x-auto hide-scrollbar">
+        <Link href="/" className="hover:text-brand-400 whitespace-nowrap">首页</Link>
+        <span className="mx-2 shrink-0">→</span>
+        <Link href="/brands" className="hover:text-brand-400 whitespace-nowrap">机场推荐</Link>
+        <span className="mx-2 shrink-0">→</span>
+        <span className="text-slate-200 whitespace-nowrap">{airport.name}</span>
+      </nav>
       
       <div className="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden mb-12">
         <div className="absolute -top-10 -right-10 text-[200px] font-black text-white/[0.02] select-none pointer-events-none z-0">

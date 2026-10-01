@@ -81,6 +81,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEO Explanation Section */}
+      <section className="mb-20 px-4 md:px-6 container mx-auto max-w-5xl animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+        <div className="glass-panel rounded-3xl p-8 md:p-10 border border-white/10 relative overflow-hidden">
+          <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-brand-500/10 blur-3xl rounded-full pointer-events-none"></div>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            什么是机场推荐？
+          </h2>
+          <div className="prose prose-invert prose-lg max-w-none text-slate-300 leading-relaxed">
+            <p>
+              <strong>机场推荐</strong>是根据网络服务商的价格、流量额度、线路稳定性（如 IPLC/IEPL 专线或公网中转）、节点分布覆盖、多平台设备支持、套餐周期时长，以及用户实际的使用需求（刷网页、看视频、玩游戏或远程办公等），对市面上不同的机场服务进行系统化的整理和对比。
+            </p>
+            <p>
+              在这里，您不仅能找到经过严苛筛选的 <strong>机场推荐</strong> 列表，还可以通过我们的 <strong>机场对比</strong> 数据和详细的 <strong>机场评测</strong> 报告，全面了解各家服务商的真实表现。此外，我们实时更新全网最新的 <strong>机场价格</strong> 与官方 <strong>机场优惠券</strong>，并提供详尽的 <strong>机场选择指南</strong>，帮助新手闭坑，让您每一次的选购都物超所值。
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Ranking Section */}
       <section id="ranking" className="mb-24 px-4 md:px-6 container mx-auto max-w-7xl scroll-mt-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-white/5 pb-6">

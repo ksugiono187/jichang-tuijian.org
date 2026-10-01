@@ -10,7 +10,7 @@ const userTopics = [
   { title: '新手机场推荐：第一次使用机场应该怎么选？', category: '机场推荐' },
   { title: '长期使用机场推荐：长期套餐应该看什么？', category: '机场推荐' },
   { title: '飞猫云 vs 微风网络：价格、流量、线路对比', category: '机场对比' },
-  { title: '机场A和机场B有什么区别？', category: '机场对比' },
+  { title: '两类机场服务有什么区别？价格、流量与线路怎么比较？', category: '机场对比' },
   { title: 'IEPL / IPLC / BGP 机场有什么区别？', category: '机场对比' },
   { title: '不同机场套餐价格怎么比较？', category: '机场对比' },
   { title: '机场流量越多越好吗？', category: '机场对比' },

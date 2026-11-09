@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Send } from "lucide-react";
+import { Mail, Send, Link2 } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -25,7 +25,34 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="pt-8 border-t border-white/5 w-1/2 mx-auto">
+        {/* 友情链接 */}
+        <div className="pt-6 border-t border-white/5 max-w-2xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-slate-400">
+            <span className="text-slate-500 font-semibold flex items-center gap-1">
+              <Link2 className="w-3.5 h-3.5 text-slate-500" />
+              友情链接：
+            </span>
+            <a 
+              href="https://jiediango.pro/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-slate-400 hover:text-brand-400 transition-colors hover:underline"
+            >
+              节点GO
+            </a>
+            <span className="text-slate-700">•</span>
+            <a 
+              href="https://jcvpn.blog/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-slate-400 hover:text-brand-400 transition-colors hover:underline"
+            >
+              叮当观察
+            </a>
+          </div>
+        </div>
+
+        <div className="pt-6 border-t border-white/5 w-1/2 mx-auto">
           <p>&copy; {new Date().getFullYear()} 机场推荐指南. All rights reserved.</p>
         </div>
       </div>

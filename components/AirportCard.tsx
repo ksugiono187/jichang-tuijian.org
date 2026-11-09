@@ -13,13 +13,21 @@ export default function AirportCard({ airport, index }: { airport: Airport, inde
   // Add animation delay based on index for scroll reveal
   const delay = (index % 3) * 150;
 
+  const isFeatured = airport.isFeatured || airport.tag === "本站主推";
+
   return (
     <article 
-      className="glass-card rounded-2xl overflow-hidden flex flex-col h-full relative group transition-all duration-300 animate-fade-in-up hover:-translate-y-1.5"
+      className={`glass-card rounded-2xl overflow-hidden flex flex-col h-full relative group transition-all duration-300 animate-fade-in-up hover:-translate-y-1.5 ${
+        isFeatured 
+          ? "border-amber-500/40 shadow-[0_0_30px_rgba(245,158,11,0.15)] ring-1 ring-amber-500/30" 
+          : ""
+      }`}
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Huge Background Number */}
-      <div className="absolute -top-6 -left-4 text-[120px] font-black text-white/[0.03] select-none pointer-events-none z-0">
+      <div className={`absolute -top-6 -left-4 text-[120px] font-black select-none pointer-events-none z-0 ${
+        isFeatured ? "text-amber-500/[0.04]" : "text-white/[0.03]"
+      }`}>
         {airport.id}
       </div>
 
@@ -27,10 +35,15 @@ export default function AirportCard({ airport, index }: { airport: Airport, inde
         {/* Header Section */}
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center space-x-3">
-            <span className="text-2xl font-black text-white/20 select-none">{airport.id}</span>
+            <span className={`text-2xl font-black select-none ${isFeatured ? "text-amber-400/50" : "text-white/20"}`}>{airport.id}</span>
             <div>
-              <h3 className="text-2xl font-bold text-white flex items-center tracking-tight">
+              <h3 className="text-2xl font-bold text-white flex items-center tracking-tight flex-wrap gap-2">
                 {airport.name}
+                {isFeatured && (
+                  <span className="text-xs font-bold px-2 py-0.5 bg-gradient-to-r from-amber-500/25 to-orange-500/25 text-amber-300 border border-amber-500/40 rounded-full animate-pulse shadow-sm">
+                    ⭐ 本站主推
+                  </span>
+                )}
               </h3>
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
                 {airport.englishName}
@@ -39,11 +52,19 @@ export default function AirportCard({ airport, index }: { airport: Airport, inde
           </div>
           
           <div className="flex flex-col items-end gap-2">
-            <span className="inline-flex items-center text-xs font-semibold px-2.5 py-1 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)]">
+            <span className={`inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.1)] ${
+              isFeatured 
+                ? "bg-amber-500/15 text-amber-300 border border-amber-500/30" 
+                : "bg-brand-500/10 text-brand-400 border border-brand-500/20"
+            }`}>
               {getCategoryIcon(airport.category)}
               {airport.category}
             </span>
-            <span className="text-xs font-medium text-slate-300 bg-white/5 px-2 py-0.5 rounded border border-white/5">
+            <span className={`text-xs font-medium px-2 py-0.5 rounded border ${
+              isFeatured 
+                ? "bg-amber-500/20 text-amber-200 border-amber-500/30 font-bold" 
+                : "bg-white/5 text-slate-300 border-white/5"
+            }`}>
               {airport.tag}
             </span>
           </div>

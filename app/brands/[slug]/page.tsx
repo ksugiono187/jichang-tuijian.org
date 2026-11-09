@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, ArrowLeft, ExternalLink, ShieldAlert, Cpu, Activity, Globe2, ShieldCheck, Zap } from "lucide-react";
+import BrandShowcaseRich from "@/components/BrandShowcaseRich";
 
 export async function generateStaticParams() {
   return airports.map((airport) => ({
@@ -42,6 +43,22 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       { "@type": "ListItem", "position": 3, "name": airport.name }
     ]
   };
+
+  if (airport.plans && airport.plans.length > 0) {
+    return (
+      <article className="container mx-auto max-w-5xl px-4 py-24 animate-fade-in-up">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <nav className="flex items-center text-sm text-slate-400 mb-8 overflow-x-auto hide-scrollbar">
+          <Link href="/" className="hover:text-brand-400 whitespace-nowrap">首页</Link>
+          <span className="mx-2 shrink-0">→</span>
+          <Link href="/brands" className="hover:text-brand-400 whitespace-nowrap">机场推荐</Link>
+          <span className="mx-2 shrink-0">→</span>
+          <span className="text-slate-200 whitespace-nowrap">{airport.name}</span>
+        </nav>
+        <BrandShowcaseRich airport={airport} />
+      </article>
+    );
+  }
 
   const isLineDedicated = airport.route.includes('IEPL') || airport.route.includes('IPLC') || airport.route.includes('专线');
   const isLineRelay = airport.route.includes('中转');

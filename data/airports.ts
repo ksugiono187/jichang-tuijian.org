@@ -1,3 +1,25 @@
+export interface AirportPlan {
+  id: string;
+  name: string;
+  category: '周期订阅' | '商务定制' | '一次性流量';
+  badge?: string;
+  intro: string;
+  price: string;
+  period: string;
+  priceDetail?: string;
+  traffic: string;
+  trafficSubtext: string;
+  tags: string[];
+  billingCycles?: string[];
+  description: string;
+}
+
+export interface AirportMetricCard {
+  value: string;
+  label: string;
+  source: string;
+}
+
 export interface Airport {
   id: string;
   rank: number;
@@ -20,12 +42,217 @@ export interface Airport {
   faq: { question: string; answer: string }[];
   seoTitle: string;
   seoDescription: string;
+  isFeatured?: boolean;
+  featuredBadge?: string;
+  tagline?: string;
+  disclosure?: string;
+  metrics?: AirportMetricCard[];
+  plans?: AirportPlan[];
+  plansNotice?: {
+    cycleDesc: string;
+    oneTimeDesc: string;
+    disclaimer: string;
+  };
 }
 
 export const airports: Airport[] = [
   {
     id: "01",
     rank: 1,
+    name: "隐形人",
+    englishName: "Invisible Network",
+    slug: "invisible",
+    affiliateUrl: "https://varnexa.invisibleaff.com/#/?code=JF4seZUy",
+    coupon: "全节点1x计费",
+    category: "专线机场",
+    price: "¥24/月起 (年付¥109)",
+    traffic: "144GB~1600GB/月",
+    protocol: "IEPL专线 / 主流协议",
+    route: "IEPL企业级内网纯专线",
+    tag: "本站主推",
+    isFeatured: true,
+    featuredBadge: "本站主推",
+    tagline: "IEPL / CROSS-BORDER CONNECTION",
+    shortDescription: "隐形人采用 IEPL 专线，提供香港、日本、新加坡等多地区节点，面向日常浏览、流媒体观看与 AI 工具访问。支持电脑与手机端使用，提供周期订阅和一次性流量套餐，方便你按实际用量选择。",
+    recommendationReason: "本站核心主推专线品牌。全节点 1x 计费，提供 Windows/macOS/Android 自研客户端及 iOS Nextin 合作接入（识别码 yxr），晚高峰速率无阻断。",
+    coreReason: "自研多端与iOS合作客户端 + IEPL纯专线 + 9款弹性周期及不限时买断套餐。",
+    suitableFor: "追求极致稳定抗封锁、多设备跨平台、需要大流量或灵活不限时流量包的用户",
+    disclosure: "推广说明：本页依据品牌方提供资料整理，为商业推广介绍。",
+    features: [
+      "IEPL 企业级纯专线 (无视晚高峰)",
+      "全节点 1x 计费 (无倍率套路)",
+      "多端自研客户端 (Win/Mac/Android)",
+      "iOS 合作客户端 Nextin (识别码 yxr)",
+      "60+ 独立IP节点 / 2Gbps+ 总带宽",
+      "提供周期订阅与不限时一次性流量包"
+    ],
+    metrics: [
+      { value: "60+", label: "独立IP节点", source: "品牌方提供规格" },
+      { value: "2Gbps+", label: "总带宽资源", source: "非单用户保证速率" },
+      { value: "500Mbps级", label: "高峰冗余配置", source: "品牌方提供规格" }
+    ],
+    plans: [
+      {
+        id: "plan-1",
+        name: "星耀风暴 365天不熄",
+        category: "周期订阅",
+        badge: "主推年付",
+        intro: "面向小流量与新用户的年度入门方案。",
+        price: "109",
+        period: "年",
+        priceDetail: "年费折算约9.08元/月，实际按年支付109元",
+        traffic: "80 GB",
+        trafficSubtext: "每30天刷新额度",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速", "年付"],
+        billingCycles: ["年付"],
+        description: "按年支付，流量从购买日起每30天刷新。适合用量相对稳定、希望以年度周期管理订阅的用户。"
+      },
+      {
+        id: "plan-2",
+        name: "白银纪元",
+        category: "周期订阅",
+        badge: "周期订阅",
+        intro: "日常浏览、视频会议与AI工具的基础流量方案。",
+        price: "24",
+        period: "月",
+        traffic: "144 GB",
+        trafficSubtext: "每月流量额度",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速"],
+        billingCycles: ["月付", "季付", "半年付", "年付"],
+        description: "每月144GB流量，支持按使用周期选择付费方式。适合需要多设备接入，并兼顾日常浏览、会议和工具访问的场景。"
+      },
+      {
+        id: "plan-3",
+        name: "黄金序列",
+        category: "周期订阅",
+        badge: "周期订阅",
+        intro: "为视频与流媒体使用较多的日常场景增加流量余量。",
+        price: "48",
+        period: "月",
+        traffic: "360 GB",
+        trafficSubtext: "每月流量额度",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速"],
+        billingCycles: ["月付", "季付", "半年付", "年付"],
+        description: "每月360GB流量，套餐资料包含BGP三网优化与专线出口。适合在常规浏览之外，有较多视频、流媒体与持续传输需求的用户。"
+      },
+      {
+        id: "plan-4",
+        name: "铂金至臻",
+        category: "周期订阅",
+        badge: "周期订阅",
+        intro: "兼顾高频网络使用、远程办公与大文件传输。",
+        price: "105",
+        period: "月",
+        traffic: "750 GB",
+        trafficSubtext: "每月流量额度",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速"],
+        billingCycles: ["月付", "季付", "半年付", "年付"],
+        description: "每月750GB流量，适合使用频率较高、需要较大月度额度的场景。套餐资料提供多线调度与专线出口，并标注全节点1x计费。"
+      },
+      {
+        id: "plan-5",
+        name: "钻石穹顶",
+        category: "周期订阅",
+        badge: "周期订阅",
+        intro: "为团队协作与高强度传输提供更大的月度额度。",
+        price: "185",
+        period: "月",
+        traffic: "1,600 GB",
+        trafficSubtext: "每月流量额度 (1.6TB)",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速"],
+        billingCycles: ["月付", "季付", "半年付", "年付"],
+        description: "每月1600GB流量，套餐中也以1.6TB标注。适合多人多设备任务、内容工作室或高频传输需求；具体账号使用规则仍以品牌说明为准。"
+      },
+      {
+        id: "plan-6",
+        name: "王者定制版",
+        category: "商务定制",
+        badge: "商务定制",
+        intro: "面向商业连接需求的独立带宽方案。",
+        price: "680",
+        period: "月",
+        traffic: "500 GB",
+        trafficSubtext: "每月流量额度",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速"],
+        billingCycles: ["月付"],
+        description: "每月500GB流量，套餐资料强调独立带宽与商业连接用途，适合对连接方案有定制需求的业务场景，具体带宽规格和交付范围需与品牌方确认。"
+      },
+      {
+        id: "plan-7",
+        name: "一次性小流量",
+        category: "一次性流量",
+        badge: "一次性买断",
+        intro: "为备用连接与间歇使用保留一份独立流量额度。",
+        price: "229",
+        period: "次",
+        traffic: "160 GB",
+        trafficSubtext: "一次性总额度 (不限时)",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速", "一次性买断"],
+        billingCycles: ["一次性"],
+        description: "一次购买160GB总额度，不按月重置，资料标注没有固定到期时间。适合需要备用额度或不连续使用的情境，设备数按品牌方最新确认为不限。"
+      },
+      {
+        id: "plan-8",
+        name: "一次性标准流量包",
+        category: "一次性流量",
+        badge: "一次性买断",
+        intro: "面向差旅、跨期使用和多设备任务的中档买断额度。",
+        price: "549",
+        period: "次",
+        traffic: "420 GB",
+        trafficSubtext: "一次性总额度 (不限时)",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速", "一次性买断"],
+        billingCycles: ["一次性"],
+        description: "一次购买420GB总额度，不按月重置，资料标注没有固定到期时间。适合希望按实际消耗安排使用、避免将月度额度闲置的情境。"
+      },
+      {
+        id: "plan-9",
+        name: "一次性精英流量包",
+        category: "一次性流量",
+        badge: "一次性买断",
+        intro: "为较高总用量与跨周期任务准备大容量买断流量。",
+        price: "1,199",
+        period: "次",
+        traffic: "1,000 GB",
+        trafficSubtext: "一次性总额度 (1TB不限时)",
+        tags: ["IEPL专线", "不限设备数", "套餐标注不限速", "一次性买断"],
+        billingCycles: ["一次性"],
+        description: "一次购买1000GB总额度，套餐中也以1TB标注。资料标注没有固定到期时间，面向高强度工作或较大累计传输需求；不限设备数以品牌方补充确认为准。"
+      }
+    ],
+    plansNotice: {
+      cycleDesc: "额度按套餐周期提供。星耀风暴为年付109元、购买日起每30天刷新80GB；其他周期套餐按月给出流量，具体重置日期以后台为准。",
+      oneTimeDesc: "229元160GB、549元420GB、1199元1000GB，都是一次购买的总额度，不是月流量。资料标注无固定到期时间，使用时按额度扣减。",
+      disclaimer: "价格、额度与可选周期来自品牌方提供的套餐资料，整理日期为2026-10-28；设备数及IEPL线路表述已按品牌方补充确认统一。实际在售价格、续费、共享和退款等规则以下单页面为准。"
+    },
+    faq: [
+      {
+        question: "iOS 客户端 Nextin 怎么连接？为什么必须填写识别码 yxr？",
+        answer: "隐形人针对 iOS 平台与 Nextin 客户端深度合作。根据品牌官方指引，在打开 Nextin 后、登录自己账号前，必须先在登录界面的识别码栏输入小写“yxr”，这是绑定隐形人专线节点集群的关键凭证。填写后即可正常登录官网账号，并自动同步获取全部专线节点。"
+      },
+      {
+        question: "隐形人的一次性流量包真的不会过期吗？与周期订阅有什么区别？",
+        answer: "是的。根据品牌方官方资料，一次性流量包（如 160GB、420GB、1000GB）均为买断型总额度，不按月清零重置，没有固定的到期时间限制。非常适合不常翻墙的轻度差旅人士、将该机场作为第二备用线路的用户，或者希望完全按需消耗流量避免浪费的朋友。"
+      },
+      {
+        question: "隐形人支持哪些设备同时在线？限制连接数吗？",
+        answer: "根据品牌方最新核对资料，隐形人的周期订阅和一次性流量包均标注为“不限设备数”。您可以在 Windows 电脑、Mac 笔记本、iPhone 和安卓平板上同时登录使用，非常适合个人多设备生态或工作室协同办公。"
+      },
+      {
+        question: "隐形人的全节点 1x 计费是什么意思？晚高峰会卡吗？",
+        answer: "全节点 1x 计费意味着无论您连接香港、日本、新加坡还是欧美的高速 IEPL 节点，消耗 1GB 流量就只扣减 1GB，绝无部分机场采用的 2x/3x/5x 隐性倍率缩水。同时因为采用物理级 IEPL 内网专线，在晚上 8:00 - 11:00 晚高峰期间，数据不走拥堵的公网骨干，全天候保障丝滑稳定。"
+      },
+      {
+        question: "隐形人能否解锁 ChatGPT、Claude 及 Netflix 4K？",
+        answer: "完全可以。隐形人的主流落地节点均配备了纯净原生住宅/机房 IP，不仅能够顺畅访问 ChatGPT, Claude, Midjourney 等 AI 生产力工具，还完美解锁 Netflix, Disney+, YouTube Premium, TikTok 等跨国流媒体 4K 超高清播放。"
+      }
+    ],
+    seoTitle: "隐形人机场评测 2026 - 本站主推IEPL纯专线/多端自研/iOS Nextin识别码yxr/9款套餐详解",
+    seoDescription: "隐形人（Invisible Network）为本站2026年度主推IEPL专线机场。拥有60+独立节点与2Gbps+总带宽，提供Win/Mac/Android自研客户端及iOS Nextin合作接入（识别码yxr）。详解9款周期订阅与不限时买断流量包，全节点1x计费晚高峰不卡顿。"
+  },
+  {
+    id: "02",
+    rank: 2,
     name: "微风网络",
     englishName: "Breezenet",
     slug: "breezenet",
@@ -49,8 +276,8 @@ export const airports: Airport[] = [
     seoDescription: "微风网络(Breezenet)是一款专为初学者打造的专线机场，提供IEPL/IPLC高质量线路与VLESS协议，是高性价比流媒体解锁与AI工具使用的首选推荐。"
   },
   {
-    id: "02",
-    rank: 2,
+    id: "03",
+    rank: 3,
     name: "飞猫云",
     englishName: "Flycat",
     slug: "flycat",
@@ -74,8 +301,8 @@ export const airports: Airport[] = [
     seoDescription: "飞猫云提供年付折算约7元/月的超高性价比套餐，每月畅享150GB流量。支持SS/V2Ray协议，是预算有限用户的理想选择。"
   },
   {
-    id: "03",
-    rank: 3,
+    id: "04",
+    rank: 4,
     name: "暮光网络",
     englishName: "Twilight",
     slug: "twilight",
@@ -99,8 +326,8 @@ export const airports: Airport[] = [
     seoDescription: "暮光网络每月仅需20元即可享受120GB专线流量。通过VLESS协议与专线节点，为用户提供流畅的网络加速服务。"
   },
   {
-    id: "04",
-    rank: 4,
+    id: "05",
+    rank: 5,
     name: "无忧链接",
     englishName: "WorryFree",
     slug: "worryfree",
@@ -124,8 +351,8 @@ export const airports: Airport[] = [
     seoDescription: "无忧链接提供19元/月的高稳定IPLC专线套餐，包含100GB流量。通过SS/V2Ray协议，为您带来无忧的低延迟网络体验。"
   },
   {
-    id: "05",
-    rank: 5,
+    id: "06",
+    rank: 6,
     name: "灵猫",
     englishName: "Civet",
     slug: "civet",
@@ -149,8 +376,8 @@ export const airports: Airport[] = [
     seoDescription: "灵猫机场为您提供每月150GB的大流量IPLC专线服务，起步仅需25元/月，满足您对高流量与极致稳定性的双重需求。"
   },
   {
-    id: "06",
-    rank: 6,
+    id: "07",
+    rank: 7,
     name: "闪跃",
     englishName: "FlashLeap",
     slug: "flashleap",
@@ -174,8 +401,8 @@ export const airports: Airport[] = [
     seoDescription: "闪跃FlashLeap主打150GB基础流量的纯正IPLC专线方案，每月24元起，为您提供不受晚高峰影响的纯净网络加速服务。"
   },
   {
-    id: "07",
-    rank: 7,
+    id: "08",
+    rank: 8,
     name: "Firefly机场",
     englishName: "Firefly",
     slug: "firefly",
@@ -199,8 +426,8 @@ export const airports: Airport[] = [
     seoDescription: "Firefly机场年付折算仅需8元/月，提供60GB月流量和VLESS优质线路，是预算有限、轻度上网用户的绝佳低价入门选择。"
   },
   {
-    id: "08",
-    rank: 8,
+    id: "09",
+    rank: 9,
     name: "跨界云",
     englishName: "Kuajie",
     slug: "kuajie",
@@ -224,8 +451,8 @@ export const airports: Airport[] = [
     seoDescription: "跨界云采用全专线架构，每月20元起即可获取120GB流量。通过稳定的Shadowsocks协议，提供全天候坚如磐石的网络连接体验。"
   },
   {
-    id: "09",
-    rank: 9,
+    id: "10",
+    rank: 10,
     name: "熊猫cloud",
     englishName: "PandaCloud",
     slug: "pandacloud",
@@ -249,8 +476,8 @@ export const airports: Airport[] = [
     seoDescription: "熊猫cloud是一款门槛极低的平价中转机场，约6元/月起，覆盖港日美等核心节点，是体验中转机场的高性价比之选。"
   },
   {
-    id: "10",
-    rank: 10,
+    id: "11",
+    rank: 11,
     name: "Sogo云",
     englishName: "SogoCloud",
     slug: "sogocloud",
@@ -274,8 +501,8 @@ export const airports: Airport[] = [
     seoDescription: "Sogo云主打IEPL企业级专线，提供150GB大流量套餐。通过自研与通用协议结合，为商务与高要求用户带来极速稳定的翻墙体验。"
   },
   {
-    id: "11",
-    rank: 11,
+    id: "12",
+    rank: 12,
     name: "宇宙云",
     englishName: "YuZhou",
     slug: "yuzhou",
@@ -299,8 +526,8 @@ export const airports: Airport[] = [
     seoDescription: "宇宙云(YuZhou)提供14.9元/月的轻量级专线套餐，融合IPLC与IEPL线路，是体验顶级专线网络的平价高性价比选择。"
   },
   {
-    id: "12",
-    rank: 12,
+    id: "13",
+    rank: 13,
     name: "二猫云",
     englishName: "2mao",
     slug: "2mao",
@@ -324,8 +551,8 @@ export const airports: Airport[] = [
     seoDescription: "二猫云(2mao)提供多种灵活套餐与广泛的多节点覆盖，起步约15元/月。聚合多种线路，为您提供丰富的科学上网选择。"
   },
   {
-    id: "13",
-    rank: 13,
+    id: "14",
+    rank: 14,
     name: "一翻云",
     englishName: "1fly",
     slug: "1fly",
@@ -349,8 +576,8 @@ export const airports: Airport[] = [
     seoDescription: "一翻云提供每月25元150GB的大流量专线服务，通过稳定的专线节点为您带来无忧的高清流媒体与大文件下载体验。"
   },
   {
-    id: "14",
-    rank: 14,
+    id: "15",
+    rank: 15,
     name: "边缘节点",
     englishName: "EdgeNova",
     slug: "edgenova",
@@ -374,8 +601,8 @@ export const airports: Airport[] = [
     seoDescription: "边缘节点EdgeNova主打年付超低价套餐，约86元/年起。提供IEPL专线直连与易用专用客户端，是长期稳定翻墙的优选。"
   },
   {
-    id: "15",
-    rank: 15,
+    id: "16",
+    rank: 16,
     name: "可信云",
     englishName: "Kosing",
     slug: "kosing",
@@ -399,8 +626,8 @@ export const airports: Airport[] = [
     seoDescription: "可信云打破IPLC高价壁垒，每月仅需9元即可享受45GB流量的IPLC专线服务。适合预算有限但追求极致低延迟体验的用户。"
   },
   {
-    id: "16",
-    rank: 16,
+    id: "17",
+    rank: 17,
     name: "速界",
     englishName: "SuJie",
     slug: "sujie",
@@ -424,8 +651,8 @@ export const airports: Airport[] = [
     seoDescription: "速界(SuJie)专为新手打造，提供简单易用的官方客户端，免去繁琐配置。25元起步，是小白用户科学上网的极佳入门选择。"
   },
   {
-    id: "17",
-    rank: 17,
+    id: "18",
+    rank: 18,
     name: "快狸",
     englishName: "KuaiLi",
     slug: "kuaili",
@@ -449,8 +676,8 @@ export const airports: Airport[] = [
     seoDescription: "快狸(KuaiLi)提供折算约10元/月的IEPL轻量专线服务，配备自研客户端，是预算有限或寻找高质量备用机场的完美选择。"
   },
   {
-    id: "18",
-    rank: 18,
+    id: "19",
+    rank: 19,
     name: "飞V",
     englishName: "Fei V",
     slug: "fei-v",
@@ -474,8 +701,8 @@ export const airports: Airport[] = [
     seoDescription: "飞V机场提供低至4.9元的超低起步价，更推出不限时流量套餐。采用Trojan/V2Ray协议优化，为您提供极致省钱的翻墙方案。"
   },
   {
-    id: "19",
-    rank: 19,
+    id: "20",
+    rank: 20,
     name: "梯子云",
     englishName: "LadderCloud",
     slug: "laddercloud",
@@ -499,8 +726,8 @@ export const airports: Airport[] = [
     seoDescription: "梯子云为您提供100GB至500GB弹性海量流量套餐，结合优化中转与专线架构，十几元起步，完美满足您的重度下载与流媒体需求。"
   },
   {
-    id: "20",
-    rank: 20,
+    id: "21",
+    rank: 21,
     name: "浪网",
     englishName: "WaveNet",
     slug: "wavenet",
@@ -524,8 +751,8 @@ export const airports: Airport[] = [
     seoDescription: "浪网WaveNet采用先进VLESS协议与自研客户端优化线路，每月30元起提供150GB大流量，是追求速度与易用性平衡的优质选择。"
   },
   {
-    id: "21",
-    rank: 21,
+    id: "22",
+    rank: 22,
     name: "灵动云",
     englishName: "LingDong",
     slug: "lingdong",
@@ -547,31 +774,6 @@ export const airports: Airport[] = [
     ],
     seoTitle: "灵动云 - 20元均衡型优化节点机场推荐",
     seoDescription: "灵动云提供20元/月的均衡型优化节点套餐，包含100GB流量。采用Trojan协议，是追求价格与实用性平衡用户的明智之选。"
-  },
-  {
-    id: "22",
-    rank: 22,
-    name: "隐形人",
-    englishName: "Invisible",
-    slug: "invisible",
-    affiliateUrl: "https://varnexa.invisibleaff.com/#/?code=JF4seZUy",
-    coupon: "暂无",
-    category: "专线机场",
-    price: "¥24/月起",
-    traffic: "144GB/月",
-    protocol: "主流协议",
-    route: "IEPL纯专线",
-    tag: "纯专线流量",
-    shortDescription: "主打大流量IEPL纯专线的高质量机场服务。",
-    recommendationReason: "采用IEPL纯专线保障极佳的网络质量，同时慷慨地提供约144GB的基础大流量。",
-    coreReason: "IEPL纯专线与144GB充沛流量的双重保障。",
-    suitableFor: "对稳定性和流量都有较高要求的视频创作者或重度游戏玩家",
-    features: ["IEPL纯专线", "144GB高流量", "无视晚高峰"],
-    faq: [
-      { question: "隐形人适合打游戏吗？", answer: "非常适合。它采用的IEPL纯专线能提供极低的延迟和极低的丢包率，是海外游戏加速的优选。" }
-    ],
-    seoTitle: "隐形人机场 - 高流量IEPL纯专线稳定机场推荐",
-    seoDescription: "隐形人机场主打IEPL纯专线服务，基础套餐即享144GB大流量。24元起步，为您带来无视晚高峰的极致稳定翻墙体验。"
   },
   {
     id: "23",

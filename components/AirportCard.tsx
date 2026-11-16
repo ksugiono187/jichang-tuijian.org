@@ -36,6 +36,13 @@ export default function AirportCard({ airport, index }: { airport: Airport, inde
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center space-x-3">
             <span className={`text-2xl font-black select-none ${isFeatured ? "text-amber-400/50" : "text-white/20"}`}>{airport.id}</span>
+            {airport.slug === 'invisible' && (
+              <img 
+                src="/invisible-logo.png" 
+                alt="隐形人 Logo" 
+                className="w-11 h-11 rounded-xl bg-white p-1 object-contain shadow-md border border-amber-500/40 shrink-0" 
+              />
+            )}
             <div>
               <h3 className="text-2xl font-bold text-white flex items-center tracking-tight flex-wrap gap-2">
                 {airport.name}

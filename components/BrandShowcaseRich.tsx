@@ -84,7 +84,7 @@ export default function BrandShowcaseRich({ airport }: { airport: Airport }) {
 
           {/* Logo & Brand Title */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
-            <div className="w-20 h-24 sm:w-24 sm:h-28 rounded-2xl bg-white/90 p-1.5 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/20 shrink-0">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white p-1.5 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/20 shrink-0 overflow-hidden">
               <img 
                 src="/invisible-logo.png" 
                 alt="隐形人 Logo" 

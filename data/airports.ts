@@ -63,7 +63,7 @@ export const airports: Airport[] = [
     englishName: "Invisible Network",
     slug: "invisible",
     affiliateUrl: "https://varnexa.invisibleaff.com/#/?code=JF4seZUy",
-    coupon: "全节点1x计费",
+    coupon: "yxr888",
     category: "专线机场",
     price: "¥24/月起 (年付¥109)",
     traffic: "144GB~1600GB/月",

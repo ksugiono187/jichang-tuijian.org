@@ -28,10 +28,17 @@ import { Airport, AirportPlan } from '@/data/airports';
 export default function BrandShowcaseRich({ airport }: { airport: Airport }) {
   const [activeTab, setActiveTab] = useState<'all' | 'cycle' | 'custom' | 'onetime'>('all');
   const [copiedCode, setCopiedCode] = useState(false);
+  const [copiedCoupon, setCopiedCoupon] = useState(false);
   const [showTable, setShowTable] = useState(false);
   const [expandedPlanId, setExpandedPlanId] = useState<string | null>(null);
 
   const plans = airport.plans || [];
+
+  const handleCopyCoupon = (code: string) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCoupon(true);
+    setTimeout(() => setCopiedCoupon(false), 2500);
+  };
 
   const filteredPlans = plans.filter((plan) => {
     if (activeTab === 'cycle') return plan.category === '周期订阅';
@@ -106,9 +113,44 @@ export default function BrandShowcaseRich({ airport }: { airport: Airport }) {
           </div>
 
           {/* Brand Introduction */}
-          <p className="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-lg text-slate-300 mb-6 leading-relaxed max-w-3xl">
             {airport.shortDescription}
           </p>
+
+          {/* Coupon Highlight Box */}
+          {airport.coupon && airport.coupon !== "暂无" && airport.coupon !== "暂无优惠码" && (
+            <div className="mb-6 p-4 bg-gradient-to-r from-purple-500/15 via-brand-500/10 to-amber-500/10 border border-purple-500/30 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 max-w-2xl">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30 shrink-0">
+                  <Tag className="w-5 h-5 text-purple-400" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white flex items-center gap-2">
+                    专属优惠码
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">可直接复制</span>
+                  </div>
+                  <div className="text-xs text-slate-400 mt-0.5">下单结账时填写即可享受专属优惠</div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => handleCopyCoupon(airport.coupon)}
+                className="w-full sm:w-auto px-5 py-2.5 bg-black/60 hover:bg-purple-500/20 border border-purple-500/40 text-purple-200 font-mono font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm shrink-0"
+                title="点击复制优惠码"
+              >
+                <span className="text-base text-white font-mono tracking-wider">{airport.coupon}</span>
+                {copiedCoupon ? (
+                  <span className="text-xs text-emerald-400 font-sans flex items-center gap-1 font-bold">
+                    <Check className="w-4 h-4" /> 已复制
+                  </span>
+                ) : (
+                  <span className="text-xs text-purple-300 font-sans flex items-center gap-1">
+                    <Copy className="w-4 h-4" /> 点击复制
+                  </span>
+                )}
+              </button>
+            </div>
+          )}
 
           {/* Action CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">

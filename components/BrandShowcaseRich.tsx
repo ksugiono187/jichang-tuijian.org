@@ -68,7 +68,7 @@ export default function BrandShowcaseRich({ airport }: { airport: Airport }) {
         {/* Ambient Glow & Watermark */}
         <div className="absolute -top-16 -right-16 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -top-10 -right-10 text-[200px] font-black text-amber-500/[0.03] select-none pointer-events-none z-0">
-          01
+          {airport.id}
         </div>
 
         <div className="relative z-10">

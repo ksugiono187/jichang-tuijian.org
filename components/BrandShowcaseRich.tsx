@@ -696,7 +696,7 @@ export default function BrandShowcaseRich({ airport }: { airport: Airport }) {
 
         {/* 8. Official Notice & Disclaimer from Image 5 */}
         <p className="text-xs text-slate-500 text-center mt-8 leading-relaxed max-w-3xl mx-auto">
-          价格、额度与可选周期来自品牌方提供的套餐资料，整理日期为 2026-10-28；设备数及 IEPL 线路表述已按品牌方补充确认统一。实际在售价格、续费、共享和退款等规则以下单页面为准。
+          价格、额度与可选周期来自品牌方提供的套餐资料，整理日期为 2026-11-21；设备数及 IEPL 线路表述已按品牌方补充确认统一。实际在售价格、续费、共享和退款等规则以下单页面为准。
         </p>
       </section>
 

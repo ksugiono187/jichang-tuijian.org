@@ -22,7 +22,7 @@ export default function Disclaimer() {
             <AlertTriangle className="w-8 h-8 text-yellow-500" />
           </div>
           <h1 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">免责声明</h1>
-          <p className="text-slate-400">最后更新日期：2026年10月01日</p>
+          <p className="text-slate-400">最后更新日期：2026年11月21日</p>
         </header>
 
         <div className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-brand-400 prose-strong:text-brand-300 leading-loose relative z-10">

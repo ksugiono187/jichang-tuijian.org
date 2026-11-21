@@ -2,7 +2,7 @@ import { airports } from "@/data/airports";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
-import { CheckCircle2, ArrowLeft, ExternalLink, ShieldAlert, Cpu, Activity, Globe2, ShieldCheck, Zap } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ExternalLink, ShieldAlert, Cpu, Activity, Globe2, ShieldCheck, Zap, Layers } from "lucide-react";
 import BrandShowcaseRich from "@/components/BrandShowcaseRich";
 
 export async function generateStaticParams() {
@@ -44,7 +44,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
     ]
   };
 
-  if (airport.plans && airport.plans.length > 0) {
+  if (airport.slug === 'invisible' && airport.plans && airport.plans.length > 0) {
     return (
       <article className="container mx-auto max-w-5xl px-4 py-24 animate-fade-in-up">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -249,6 +249,78 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
             )}
           </div>
         </section>
+
+        {/* Section 4.5: Official Packages & Pricing Plans */}
+        {airport.plans && airport.plans.length > 0 && (
+          <section className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl" id="plans">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+              <div>
+                <h2 className="text-3xl font-bold text-white flex items-center">
+                  <Layers className="w-8 h-8 mr-3 text-brand-400" />
+                  官方全套套餐与价格明细
+                </h2>
+                <p className="text-sm text-slate-400 mt-1">
+                  共收录 {airport.plans.length} 款官方在售方案 · 整理核验日期：2026-11-21
+                </p>
+              </div>
+              <span className="text-xs font-semibold px-3 py-1.5 bg-brand-500/10 text-brand-300 border border-brand-500/20 rounded-full w-fit">
+                {airport.route}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {airport.plans.map((plan, idx) => (
+                <div key={idx} className="bg-white/5 border border-white/10 hover:border-brand-500/30 rounded-2xl p-6 flex flex-col justify-between transition-all hover:bg-white/[0.07]">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-xs font-bold px-2.5 py-1 bg-white/10 text-slate-300 rounded-lg">
+                        {plan.category}
+                      </span>
+                      {plan.badge && (
+                        <span className="text-xs font-bold px-2.5 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
+                          {plan.badge}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
+                    <p className="text-xs text-slate-400 mb-4 line-clamp-2">{plan.intro || plan.description}</p>
+                    <div className="flex items-baseline gap-1.5 mb-4">
+                      <span className="text-3xl font-extrabold text-white">¥{plan.price}</span>
+                      <span className="text-sm text-slate-400">/{plan.period}</span>
+                    </div>
+                    <div className="p-3 bg-black/30 rounded-xl mb-4 border border-white/5 flex items-center justify-between">
+                      <span className="text-xs text-slate-400">可用额度</span>
+                      <span className="text-sm font-bold text-emerald-400">{plan.traffic}</span>
+                    </div>
+                    <ul className="space-y-1.5 mb-6 text-xs text-slate-300">
+                      {plan.tags.map((tag, tIdx) => (
+                        <li key={tIdx} className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0" />
+                          <span className="truncate">{tag}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <Link
+                    href={airport.affiliateUrl}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="w-full py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-bold rounded-xl text-center transition-all shadow-md flex items-center justify-center gap-1.5"
+                  >
+                    前往选购 <ExternalLink className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              ))}
+            </div>
+
+            {airport.plansNotice && (
+              <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-xs text-slate-400 leading-relaxed">
+                <p className="font-semibold text-slate-300 mb-1">📢 套餐选购提示：</p>
+                <p>{airport.plansNotice.disclaimer}</p>
+              </div>
+            )}
+          </section>
+        )}
 
         {/* Section 5: Features Highlight */}
         <section className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
